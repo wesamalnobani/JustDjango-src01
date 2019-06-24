@@ -9,7 +9,7 @@ User = settings.AUTH_USER_MODEL
 class Post(models.Model):
     title       = models.CharField(max_length=120)
     description = models.TextField()
-    author      = models.OneToOneField('Author',on_delete=models.CASCADE)
+    author      = models.ForeignKey('Author',on_delete=models.CASCADE) #OneToOneField mean evry post has one Author
     image       = models.ImageField()
     slug        = models.SlugField() #posts/1/ --> /posts/first
 
@@ -19,7 +19,7 @@ class Post(models.Model):
 
 
 class Author(models.Model):
-    user          = models.ForeignKey(User, on_delete=models.CASCADE)
+    user          = models.ForeignKey(User, on_delete=models.CASCADE) #mean more one post has one Auther
     email         = models.EmailField()
     cellphone_num = models.IntegerField()
 

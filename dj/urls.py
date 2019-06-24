@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from posts.views import posts_list, posts_detail
+from posts.views import posts_list, posts_detail, posts_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/',posts_list),
-    path('post/<slug>/',posts_detail)
+    path('post/create/',posts_create), # we must put before 
+    path('post/<slug>/',posts_detail),
 ]
